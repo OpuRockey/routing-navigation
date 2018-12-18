@@ -1,0 +1,17 @@
+<div *ngIf="!name ; else formInfo">
+    <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+        <input type="text" formControlName="name" />
+        <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+            {{rForm.controls['name'].errors | json}}
+        </div>
+        <input type="text" formControlName="description" />
+        <div *ngIf="!rForm.controls['name'].description && rForm.controls['description'].touched">
+            {{rForm.controls['description'].errors | json}}
+        </div>
+        <input type="submit" value="Submit" [disabled]="!rForm.valid" />  
+    </form>
+</div>
+
+<ng-template #formInfo>
+    {{ name }}  {{ description }}
+</ng-template>  
