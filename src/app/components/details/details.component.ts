@@ -11,7 +11,11 @@ import { ActivatedRoute } from '@angular/router' ;
 export class DetailsComponent implements OnInit {
 
   user$ : Object ;
-  $userCity : String ;
+  userCity$ : String ;
+  user_name : String ;
+  user_email : String ;
+  user_website : String ;
+  user_phone : String ;
  	
 
   constructor(private data : DataService, private route : ActivatedRoute){
@@ -22,10 +26,13 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-  	this.data.getUser(this.user$).subscribe((data) => {
-  		this.user$ = data ;
-  		this.userCity$ = data.address.city ;
-  		console.log('user$ var is set to :',this.user$)
+  	this.data.getUser(this.user$).subscribe((data:any) => {
+      this.userCity$ = data.address.city ;
+      this.user_name = data.name ;
+      this.user_email = data.email ;
+      this.user_website = data.website ;
+      this.user_phone = data.phone ;
+      console.log(data);
   	});
   }
 

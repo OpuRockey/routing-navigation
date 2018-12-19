@@ -6,6 +6,7 @@ import { DepartmentListComponent } from './components/department-list/department
 import { UsersComponent } from './components/users/users.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { DetailsComponent } from './components/details/details.component';
+import { TestComponent } from './components/test/test.component' ;
 
 
 const routes: Routes = [
@@ -24,6 +25,9 @@ const routes: Routes = [
 	{
 		path : 'details/:id' , component : DetailsComponent
 	},
+	{
+		path : 'test' , component : TestComponent
+	},
 
 ];
 
@@ -38,5 +42,6 @@ export const routingComponents = [
 	EmployeeListComponent,
 	PostsComponent,
 	UsersComponent,
-	DetailsComponent
+	DetailsComponent,
+	TestComponent
 ]
